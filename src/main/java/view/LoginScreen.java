@@ -25,9 +25,9 @@ public class LoginScreen {
         do {
             System.out.println("Welcome to Our Hotel Application !");
             System.out.print("Please enter you username : ");
-            String username = proccessUtils.input.nextLine();
+            String username = proccessUtils.scanner.nextLine();
             System.out.print("Please enter you password : ");
-            String password = proccessUtils.input.nextLine();
+            String password = proccessUtils.scanner.nextLine();
 
             User user = authenticationController.loginControl(username,password);
 
@@ -45,7 +45,7 @@ public class LoginScreen {
             }
 
             System.out.println("Do you want exit? (Y/N)");
-            String choise=proccessUtils.input.nextLine();
+            String choise=proccessUtils.scanner.nextLine();
 
             if(choise.toUpperCase().equals("Y")){
                 System.exit(0);

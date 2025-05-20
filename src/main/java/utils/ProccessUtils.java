@@ -5,10 +5,10 @@ import java.util.Scanner;
 public class ProccessUtils {
 
     private static ProccessUtils proccessUtils;
-    public Scanner input;
+    public Scanner scanner;
 
     private ProccessUtils(){
-        input = new Scanner(System.in);
+        scanner = new Scanner(System.in);
     }
 
     public static ProccessUtils getProccessUtilsInstance(){

@@ -16,7 +16,7 @@ public class AuthenticationController {
         return authenticationController;
     }
 
-    public User loginControl() {
+    public User loginControl(String username, String password) {
         //TODO kullanıcının ad şife kontrol edilecek alan
         return null;
     }

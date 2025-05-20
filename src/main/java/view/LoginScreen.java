@@ -29,7 +29,7 @@ public class LoginScreen {
             System.out.print("Please enter you password : ");
             String password = proccessUtils.input.nextLine();
 
-            User user = authenticationController.loginControl();
+            User user = authenticationController.loginControl(username,password);
 
             if (!(user == null)) {
 

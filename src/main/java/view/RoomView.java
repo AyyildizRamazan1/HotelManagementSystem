@@ -14,7 +14,11 @@ public class RoomView {
         return roomView;
     }
 
-    public void getRoomView() {
+    public void getAdminRoomView() {
         System.out.println("Henüz method hazır değil ancak çalışıyor");
+    }
+
+    public void getReceptionistRoomView() {
+
     }
 }

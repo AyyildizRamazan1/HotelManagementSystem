@@ -14,7 +14,11 @@ public class ReservationView {
         return reservationView;
     }
 
-    public void getReservationView() {
+    public void getAdminReservationView() {
         System.out.println("Henüz method hazır değil ancak çalışıyor");
+    }
+
+    public void getReceptionistReservationView() {
+
     }
 }

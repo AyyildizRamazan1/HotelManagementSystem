@@ -38,21 +38,45 @@ public class MainViews {
                     userView.getUserView();
                     break;
                 case "2":
-                    roomView.getRoomView();
+                    roomView.getAdminRoomView();
                     break;
                 case "3":
-                    reservationView.getReservationView();
+                    reservationView.getAdminReservationView();
                     break;
                 case "0":
                     break ADMINLABEL;
                 default:
                     System.out.println("Invalid choice ! ");
             }
-
         } while (true);
-
     }
 
     public void getReceptionistView(User user) {
+
+        System.out.println("Welcome" + user.getUserName());
+
+        RECEPTIONISTLABEL:
+        do {
+            System.out.println("1.Manage Room\n" +
+                    "2. Manage Reservation\n" +
+                    "0. Logout\n" +
+                    "Please Select : ");
+            String choice = proccessUtils.scanner.nextLine();
+
+            switch (choice) {
+                case "1":
+                    roomView.getReceptionistRoomView();
+                    break;
+                case "2":
+                    reservationView.getReceptionistReservationView();
+                    break;
+                case "0":
+                    break RECEPTIONISTLABEL;
+                default:
+                    System.out.println("Invalid choice ! ");
+            }
+
+        } while (true);
+
     }
 }

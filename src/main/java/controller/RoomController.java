@@ -1,5 +1,7 @@
 package controller;
 
+import model.entity.Room;
+
 public class RoomController {
     private static RoomController roomController;
 
@@ -11,5 +13,19 @@ public class RoomController {
             roomController = new RoomController();
         }
         return roomController;
+    }
+
+    public void createRoom(String roomNumber, String category, int intCapacity, double doublePrice, boolean reserved) {
+    }
+
+    public void getAllRoom() {
+
+    }
+
+    public Room findRoom(String roomNumber) {
+        return null;
+    }
+
+    public void deleteRoom(Room room) {
     }
 }

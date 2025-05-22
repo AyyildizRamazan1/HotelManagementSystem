@@ -122,6 +122,8 @@ public class UserView {
                 default:
                     System.out.println("Invalid Choice !");
             }
+        }else{
+            System.out.println("User Not Found !");
         }
     }
 

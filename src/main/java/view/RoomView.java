@@ -73,7 +73,10 @@ public class RoomView {
                     roomController.getAllRoom();
                     break;
                 case "2":
-                    updateRoomStatus();
+                    System.out.println("Please Enter RoomNumber: ");
+                    String roomNumber = proccessUtils.scanner.next();
+
+                    updateRoomStatus(roomNumber);
                     break;
                 case "3":
                     findRoom();
@@ -86,11 +89,18 @@ public class RoomView {
         }
     }
 
+
     private void findRoom() {
         System.out.print("Please Enter RoomNumber: ");
         String roomNumber = proccessUtils.scanner.next();
 
         Room room = roomController.findRoom(roomNumber);
+
+        if (room == null) {
+            System.out.println("Room Not Found !");
+        } else {
+            System.out.println(room);
+        }
 
         System.out.println(room);
     }
@@ -156,7 +166,9 @@ public class RoomView {
                 }
             }
 
-            updateRoomStatus();
+            boolean newStatus = updateRoomStatus();
+
+            roomController.updateRoom(room, newRoomNumber, newIntCapacity, newCategory, doubleNewPrice, newStatus);
 
         } else {
             System.out.println("Room not found! ");
@@ -220,9 +232,9 @@ public class RoomView {
 
     }
 
-    private void updateRoomStatus() {
+    private boolean updateRoomStatus() {
 
-        boolean newAvailable;
+        //boolean newAvailable;
         NEWAVAILABLECHOISE:
         while (true) {
             System.out.println("1. Available\n" +
@@ -230,21 +242,53 @@ public class RoomView {
                     "Please Enter New RoomStatus: ");
             String status = proccessUtils.scanner.next();
 
-            if (status.equalsIgnoreCase("cancel")) {
-                return;
-            }
+            //if (status.equalsIgnoreCase("cancel")) {
+            //    return;
+            //}
 
             switch (status) {
                 case "1":
-                    newAvailable = false;
-                    break NEWAVAILABLECHOISE;
+                    // newAvailable = false;
+                    return false;
                 case "2":
-                    newAvailable = true;
-                    break NEWAVAILABLECHOISE;
+                    //  newAvailable = true;
+                    return true;
                 default:
                     System.out.println("Invalid Choice! ");
             }
         }
+    }
 
+    private void updateRoomStatus(String roomNumber) {
+        boolean newAvailable=false;
+        Room room = roomController.findRoom(roomNumber);
+
+        if (room != null) {
+            NEWABALIABLECHOİSE:
+            while (true) {
+                System.out.println("1. Available\n" +
+                        "2. Not Available\n" +
+                        "Please Enter New RoomStatus: ");
+                String status = proccessUtils.scanner.next();
+
+                if (status.equalsIgnoreCase("cancel")) {
+                    return;
+                }
+
+                switch (status) {
+                    case "1":
+                        newAvailable = false;
+                        break NEWABALIABLECHOİSE;
+                    case "2":
+                        newAvailable = true;
+                        break NEWABALIABLECHOİSE;
+                    default:
+                        System.out.println("Invalid Choice! ");
+                }
+            }
+        }else{
+            System.out.println("Room Not Found !");
+        }
+        roomController.updateRoomStatus(room, newAvailable);
     }
 }

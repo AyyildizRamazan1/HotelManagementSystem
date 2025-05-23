@@ -28,4 +28,10 @@ public class RoomController {
 
     public void deleteRoom(Room room) {
     }
+
+    public void updateRoom(Room room, String newRoomNumber, int newIntCapacity, String newCategory, double doubleNewPrice, boolean newStatus) {
+    }
+
+    public void updateRoomStatus(Room room, boolean newAvailable) {
+    }
 }
